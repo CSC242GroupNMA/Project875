@@ -7,7 +7,7 @@ public class State {
 	public String ComputerPosition;
 	public Player currentplayer;
 	
-	public State(Player currentplayer) {
+	public State(Player currentplayer, CheckerPiece board[][]) {
 		this.currentplayer=currentplayer;
 	}
 	

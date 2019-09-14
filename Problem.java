@@ -21,6 +21,10 @@ public class Problem {
 	//Keeping track of current Node
 	public Node currnode;
 	
+	//Keeping track of current state
+	public State currstate;
+	
+	
 	//define board
 	public static CheckerPiece boardarray[][];  //BoardArray of type CheckerPiece
 	
@@ -30,13 +34,13 @@ public class Problem {
 			this.size=4;
 			if(Game.user.color.equals("b")) {
 				
-				InitialState = new State(Game.user);
+				InitialState = new State(Game.user,boardarray);
 				startingplayer = Game.user;
 				secondplayer = Game.computer;
 			}
 			else {
 				
-				InitialState = new State(Game.computer);
+				InitialState = new State(Game.computer,boardarray);
 				startingplayer = Game.computer;
 				secondplayer = Game.user;
 			}
@@ -44,10 +48,10 @@ public class Problem {
 		else if(size==2) {
 			this.size = 8;
 			if(Game.user.color.equals("b")) {
-				InitialState = new State(Game.user);
+				InitialState = new State(Game.user,boardarray);
 			}
 			else {
-				InitialState = new State(Game.computer);
+				InitialState = new State(Game.computer,boardarray);
 			}
 		}	
 		
@@ -102,7 +106,7 @@ public class Problem {
 	
 	
 	public void Random(Player user, Player computer) {
-		currnode = new Node(InitialState, null, 0, null, boardarray); //setting the parent node
+		currnode = new Node(InitialState, null, 0, null); //setting the parent node
 		
 		if(startingplayer.equals(user)) {
 			UserTurn();
@@ -128,6 +132,7 @@ public class Problem {
 		
 		if(Action.checkvalidaction(Actionmade)) {
 			Action.makemove(Actionmade);
+			
 		}
 		
 		else {
@@ -136,6 +141,8 @@ public class Problem {
 		}
 		
 		printboard(boardarray);
+		
+		currstate = new State(Game.computer,boardarray);
 		ComputerTurn();
 	}
 	

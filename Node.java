@@ -10,12 +10,11 @@ public class Node {
 	public CheckerPiece newboard[][];
 	public Node child;
 	
-	public Node(State state, Node Parent, int pathcost, Action prevmove, CheckerPiece board[][]) {
+	public Node(State state, Node Parent, int pathcost, Action prevmove) {
 		this.Parent = Parent;
 		this.state = state;
 		this.PathCost = pathcost;
 		this.prevmove=prevmove;
-		this.newboard = board;
 	}
 	
 	//LOOK IN BOOK

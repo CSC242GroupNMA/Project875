@@ -53,6 +53,9 @@ public class Action {
 		
 	}
 	
+	//actionmade
+	//public static void 
+	
 	//Returns the sequence of actions taken to reach solution
 	public void Solution() {
 		
